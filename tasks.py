@@ -11,7 +11,7 @@ templateLoader = jinja2.FileSystemLoader(searchpath="templates")
 template_env = jinja2.Environment(loader=templateLoader)
 
 def render_template(template_filename, **context):
-	return template_env.get_template(template_filename).render(context)
+	return template_env.get_template(template_filename).render(**context)
 
 def send_simple_message(to, subject, body, html):
     return requests.post(
